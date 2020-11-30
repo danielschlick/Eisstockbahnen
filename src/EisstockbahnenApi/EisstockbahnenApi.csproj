@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>b8080759-d73d-44a8-b27e-a0770b3974ee</UserSecretsId>
+    <AssemblyName>EisstockbahnenApi</AssemblyName>
+    <RootNamespace>EisstockbahnenApi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EisstockbahnenBusinessLogic\EisstockbahnenBusinessLogic.csproj" />
+    <ProjectReference Include="..\EisstockbahnenWebModel\EisstockbahnenWebModel.csproj" />
+  </ItemGroup>
+
+
+</Project>

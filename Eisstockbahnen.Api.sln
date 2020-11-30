@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EisstockbahnenApi", "src\EisstockbahnenApi\EisstockbahnenApi.csproj", "{4AB0BA8E-9C7A-4629-9B1E-4427C44AD364}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EisstockbahnenBusinessLogic", "src\EisstockbahnenBusinessLogic\EisstockbahnenBusinessLogic.csproj", "{F4E3FAAB-25A6-40E6-92F0-9352C291960E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EisstockbahnenDatabase", "src\EisstockbahnenDatabase\EisstockbahnenDatabase.csproj", "{D2846987-37B1-4CEF-B758-837637AB248B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EisstockbahnenWebModel", "src\EisstockbahnenWebModel\EisstockbahnenWebModel.csproj", "{C5900DA0-4644-472A-BECE-82DD4074C574}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AB0BA8E-9C7A-4629-9B1E-4427C44AD364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB0BA8E-9C7A-4629-9B1E-4427C44AD364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB0BA8E-9C7A-4629-9B1E-4427C44AD364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB0BA8E-9C7A-4629-9B1E-4427C44AD364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E3FAAB-25A6-40E6-92F0-9352C291960E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E3FAAB-25A6-40E6-92F0-9352C291960E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E3FAAB-25A6-40E6-92F0-9352C291960E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E3FAAB-25A6-40E6-92F0-9352C291960E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2846987-37B1-4CEF-B758-837637AB248B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2846987-37B1-4CEF-B758-837637AB248B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2846987-37B1-4CEF-B758-837637AB248B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2846987-37B1-4CEF-B758-837637AB248B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5900DA0-4644-472A-BECE-82DD4074C574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5900DA0-4644-472A-BECE-82DD4074C574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5900DA0-4644-472A-BECE-82DD4074C574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5900DA0-4644-472A-BECE-82DD4074C574}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53B0D9A0-99A0-4B9B-8764-56B69D7AB21D}
+	EndGlobalSection
+EndGlobal
