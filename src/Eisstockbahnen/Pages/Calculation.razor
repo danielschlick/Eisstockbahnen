@@ -1,0 +1,52 @@
+﻿@page "/calculation"
+
+@using EisstockbahnenWebModel;
+@using Eisstockbahnen.Model;
+@inject HttpClient Http
+
+<div class="container">
+    @foreach (var calculationItem in calculationItems)
+    {
+        <div class="row">
+            <h5>@calculationItem.Product.Name:</h5>
+            <div class="input-field col s12 l6">
+                <input id="b_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.Bought">
+                <label for="b_@calculationItem.Product.Id">Anzahl gekauft</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input id="bp_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.BuyPrice">
+                <label for="bp_@calculationItem.Product.Id">Preis pro @calculationItem.Product.Unit.Name</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input id="s_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.Sold">
+                <label for="s_@calculationItem.Product.Id">Anzahl verkauft</label>
+            </div>
+            <div class="input-field col s12 l6">
+                <input id="sp_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.SellPrice">
+                <label for="sp_@calculationItem.Product.Id">Preis pro @calculationItem.Product.Unit.Name</label>
+            </div>
+        </div>
+    }
+
+    <div class="row">
+        <button class="btn waves-effect waves-light grey darken-2" @onclick="Calculate">Berechnen</button>
+    </div>
+</div>
+
+@code {
+    private List<CalculationItem> calculationItems = new List<CalculationItem>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var products = await Http.GetFromJsonAsync<ProductModel[]>("https://localhost:44361/api/product");
+        foreach (var product in products)
+        {
+            calculationItems.Add(new CalculationItem(product));
+        }
+    }
+
+    private void Calculate(MouseEventArgs e)
+    {
+
+    }
+}
