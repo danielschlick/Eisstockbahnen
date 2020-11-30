@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>EisstockbahnenBusinessLogic</AssemblyName>
+    <RootNamespace>EisstockbahnenBusinessLogic</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EisstockbahnenDatabase\EisstockbahnenDatabase.csproj" />
+    <ProjectReference Include="..\EisstockbahnenWebModel\EisstockbahnenWebModel.csproj" />
+  </ItemGroup>
+
+</Project>
