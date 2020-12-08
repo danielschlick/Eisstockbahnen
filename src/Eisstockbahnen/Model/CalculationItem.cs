@@ -10,6 +10,8 @@ namespace Eisstockbahnen.Model
         public double BuyPrice { get; set; }
         public double SellPrice { get; set; }
 
+        public double Profit { get; set; }
+
         public ProductModel Product { get; set; }
 
         public CalculationItem(ProductModel product) : this(0, 0, 0, 0, product)
