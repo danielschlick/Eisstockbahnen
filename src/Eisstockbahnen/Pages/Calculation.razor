@@ -2,6 +2,7 @@
 
 @using EisstockbahnenWebModel;
 @using Eisstockbahnen.Model;
+@using Eisstockbahnen.Services;
 @inject HttpClient Http
 
 <div class="container">
@@ -31,9 +32,31 @@
     <div class="row">
         <button class="btn waves-effect waves-light grey darken-2" @onclick="Calculate">Berechnen</button>
     </div>
+
+
+    <div style="display: @visibility">
+        <div class="divider"></div>
+        @foreach (var calculationItem in calculationItems)
+        {
+            <div class="row">
+                <h5>@calculationItem.Product.Name</h5>
+                <div class="col s12 l4">
+                    <p>Einnahmen: @Decimal.Multiply((decimal)calculationItem.SellPrice, (decimal)calculationItem.Sold)€</p>
+                </div>
+                <div class="col s12 l4">
+                    <p>Ausgaben: @Decimal.Multiply((decimal)calculationItem.BuyPrice, (decimal)calculationItem.Bought)€</p>
+                </div>
+                <div class="col s12 l4">
+                    <p>Profit: @calculationItem.Profit€</p>
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
 @code {
+    string visibility = "none";
+
     private List<CalculationItem> calculationItems = new List<CalculationItem>();
 
     protected override async Task OnInitializedAsync()
@@ -47,6 +70,9 @@
 
     private void Calculate(MouseEventArgs e)
     {
+        CalculationService service = new CalculationService();
+        calculationItems = service.CalculateItems(calculationItems);
 
+        visibility = "block";
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eisstockbahnen", "src\Eisstockbahnen\Eisstockbahnen.csproj", "{E9FA2FAF-AC56-4DFD-8852-525107D49593}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EisstockbahnenWebModel", "src\EisstockbahnenWebModel\EisstockbahnenWebModel.csproj", "{E4FBCE1D-697A-4DEF-AFC7-DD89CFC1515F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EisstockbahnenWebModel", "src\EisstockbahnenWebModel\EisstockbahnenWebModel.csproj", "{E4FBCE1D-697A-4DEF-AFC7-DD89CFC1515F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
