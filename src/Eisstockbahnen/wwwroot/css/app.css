@@ -1,1 +1,40 @@
-﻿
+﻿body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.titelbild{
+    width:100%;
+    height:400px;
+}
+
+.titelLines {
+    border-bottom: solid 1px;
+}
+
+.wrapper {
+    width:100%;
+    height: 3em;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#map {
+    height:500px;
+    width:100%; 
+    margin-top:75px;
+}
