@@ -4,27 +4,29 @@
 @using Eisstockbahnen.Model;
 @using Eisstockbahnen.Services;
 @inject HttpClient Http
+@inject IJSRuntime JS
 
 <div class="container">
+
     @foreach (var calculationItem in calculationItems)
     {
         <div class="row">
             <h5>@calculationItem.Product.Name:</h5>
             <div class="input-field col s12 l6">
-                <input id="b_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.Bought">
-                <label for="b_@calculationItem.Product.Id">Anzahl gekauft</label>
+                <input placeholder="Placeholder" id="b_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.Bought">
+                <label class="active" for="b_@calculationItem.Product.Id">Anzahl gekauft</label>
             </div>
             <div class="input-field col s12 l6">
                 <input id="bp_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.BuyPrice">
-                <label for="bp_@calculationItem.Product.Id">Preis pro @calculationItem.Product.Unit.Name</label>
+                <label class="active" for="bp_@calculationItem.Product.Id">Preis pro @calculationItem.Product.Unit.Name</label>
             </div>
             <div class="input-field col s12 l6">
                 <input id="s_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.Sold">
-                <label for="s_@calculationItem.Product.Id">Anzahl verkauft</label>
+                <label class="active" for="s_@calculationItem.Product.Id">Anzahl verkauft</label>
             </div>
             <div class="input-field col s12 l6">
                 <input id="sp_@calculationItem.Product.Id" type="number" min="0" @bind="calculationItem.SellPrice">
-                <label for="sp_@calculationItem.Product.Id">Preis pro @calculationItem.Product.Unit.Name</label>
+                <label class="active" for="sp_@calculationItem.Product.Id">Preis pro @calculationItem.Product.Unit.Name</label>
             </div>
         </div>
     }
@@ -70,6 +72,7 @@
 
     private void Calculate(MouseEventArgs e)
     {
+
         CalculationService service = new CalculationService();
         calculationItems = service.CalculateItems(calculationItems);
 
