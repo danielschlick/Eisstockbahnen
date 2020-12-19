@@ -1,10 +1,11 @@
-﻿@page "/calculation"
+﻿@page "/calculation/{hash}"
 
 @using EisstockbahnenWebModel;
 @using Eisstockbahnen.Model;
 @using Eisstockbahnen.Services;
 @inject HttpClient Http
 @inject IJSRuntime JS
+@inject NavigationManager NavigationManager
 
 <div class="container">
 
@@ -57,7 +58,12 @@
 </div>
 
 @code {
+    [Parameter]
+    public string hash { get; set; }
+
+    string authentificationHash;
     string visibility = "none";
+    string verifyHash = "de32a85b3850640b2371fc4c5377cb7f8f1bc51621604144d9c1b7265b029e8d";
 
     private List<CalculationItem> calculationItems = new List<CalculationItem>();
 
@@ -68,6 +74,16 @@
         {
             calculationItems.Add(new CalculationItem(product));
         }
+    }
+
+    protected override void OnParametersSet()
+    {
+        authentificationHash = hash;
+        if (authentificationHash != verifyHash)
+        {
+            NavigationManager.NavigateTo($"authentication");
+        }
+
     }
 
     private void Calculate(MouseEventArgs e)

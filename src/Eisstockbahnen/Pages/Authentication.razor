@@ -1,5 +1,8 @@
 ﻿@page "/authentication"
 @using EisstockbahnenWebModel;
+@using System;
+@using System.Security.Cryptography;
+@using System.Text;
 @inject HttpClient Http
 @inject IJSRuntime JS
 @inject NavigationManager NavigationManager
@@ -13,10 +16,10 @@
             </div>
             <div class="input-field col s6 offset-s3">
                 <input id="password" type="password" @bind="password">
-                <label for="password">Passwort</label>
+                <label class="active" for="password">Passwort</label>
             </div>
             <div class="col s6 offset-s3" style="display: @visibility">
-                <p>@errorMessage</p>
+                <p>Falscher Username oder Passwort.</p>
             </div>
 
             <div class="col s6 offset-s3">
@@ -29,17 +32,27 @@
 @code {
     private string userName;
     private string password;
-    private string errorMessage = "Falscher Username oder Passwort.";
+    private string hash;
 
     string visibility = "none";
 
     private async void CheckUser(MouseEventArgs e)
     {
+        using (SHA256 sha256Hash = SHA256.Create())
+        {
+            hash = GetHash(sha256Hash, password);
+        }
+
         var accountModels = await Http.GetFromJsonAsync<AccountModel[]>("https://localhost:44361/api/account");
-        var account = accountModels.FirstOrDefault(x => x.Username == userName && x.Password == password);
+        var account = accountModels.FirstOrDefault(x => x.Username == userName && x.Password == hash);
         if (account != null)
         {
-            NavigationManager.NavigateTo("calculation");
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                hash = GetHash(sha256Hash, "authentified");
+            }
+
+            NavigationManager.NavigateTo($"calculation/{hash}");
         }
         else
         {
@@ -47,4 +60,24 @@
         }
     }
 
+    private static string GetHash(HashAlgorithm hashAlgorithm, string input)
+    {
+
+        // Convert the input string to a byte array and compute the hash.
+        byte[] data = hashAlgorithm.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+        // Create a new Stringbuilder to collect the bytes
+        // and create a string.
+        var sBuilder = new StringBuilder();
+
+        // Loop through each byte of the hashed data
+        // and format each one as a hexadecimal string.
+        for (int i = 0; i < data.Length; i++)
+        {
+            sBuilder.Append(data[i].ToString("x2"));
+        }
+
+        // Return the hexadecimal string.
+        return sBuilder.ToString();
+    }
 }
