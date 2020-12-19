@@ -5,15 +5,15 @@
 @inject NavigationManager NavigationManager
 
 <div class="container">
-    <div class="row"  style="margin-top:25em">
+    <div class="row" style="margin-top:25em">
         <div>
             <div class="input-field col s6 offset-s3">
-                <input placeholder="Username" id="userName" type="text" @bind="userName">
-                <label class="active" for="userName">Username</label>
+                <input id="userName" type="text" @bind="userName">
+                <label class="active" for="userName">Benutzername</label>
             </div>
             <div class="input-field col s6 offset-s3">
                 <input id="password" type="password" @bind="password">
-                <label for="password">Password</label>
+                <label for="password">Passwort</label>
             </div>
             <div class="col s6 offset-s3" style="display: @visibility">
                 <p>@errorMessage</p>
