@@ -61,7 +61,6 @@
     [Parameter]
     public string hash { get; set; }
 
-    string authentificationHash;
     string visibility = "none";
     string verifyHash = "de32a85b3850640b2371fc4c5377cb7f8f1bc51621604144d9c1b7265b029e8d";
 
@@ -78,8 +77,7 @@
 
     protected override void OnParametersSet()
     {
-        authentificationHash = hash;
-        if (authentificationHash != verifyHash)
+        if (hash != verifyHash)
         {
             NavigationManager.NavigateTo($"authentication");
         }
