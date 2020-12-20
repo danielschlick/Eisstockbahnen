@@ -59,6 +59,6 @@ stages:
         
     - task: AzureWebApp@1
       inputs:
-        azureSubscription: 'msdn_SDL (VS Enterprise)'
+        azureSubscription: 'c56ba9ca-7c71-4014-852f-5039fc856aec'
         appName: 'Eisbahnen'
         package: $(System.DefaultWorkingDirectory)/**/*.zip    
