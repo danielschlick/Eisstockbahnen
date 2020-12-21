@@ -68,7 +68,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var products = await Http.GetFromJsonAsync<ProductModel[]>("https://localhost:44361/api/product");
+        var products = await Http.GetFromJsonAsync<ProductModel[]>("https://agaeisstockbahnenapi.azurewebsites.net/api/product");
         foreach (var product in products)
         {
             calculationItems.Add(new CalculationItem(product));

@@ -43,7 +43,7 @@
             hash = GetHash(sha256Hash, password);
         }
 
-        var accountModels = await Http.GetFromJsonAsync<AccountModel[]>("https://localhost:44361/api/account");
+        var accountModels = await Http.GetFromJsonAsync<AccountModel[]>("https://agaeisstockbahnenapi.azurewebsites.net/api/account");
         var account = accountModels.FirstOrDefault(x => x.Username == userName && x.Password == hash);
         if (account != null)
         {
